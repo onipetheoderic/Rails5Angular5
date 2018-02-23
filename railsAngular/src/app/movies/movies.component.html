@@ -1,0 +1,36 @@
+<h2 class="text-center">My Movie Lists</h2>
+<app-movie-search></app-movie-search>
+<br>
+<div class="col-md-3">
+
+<div class="form-group">
+	<input  #movieName placeholder="New Movie Name" class="form-control">	
+</div>
+
+<div class="form-group">
+	<input #releaseYear placeholder="Movies Release Year" class="form-control">	
+</div>
+<button class="btn btn-success" (click) = "add(movieName.value, releaseYear.value); movieName.value=''; releaseYear.value=''">Create New</button>
+
+
+</div>
+
+
+<div>	
+    	<nav class="nav-sidebar">
+			<ul class="list-group">
+				<li class="list-group-item" *ngFor="let eachMovie of movies">
+					<a routerLink = '/detail/{{eachMovie.id}}'>
+
+						{{eachMovie.name}} - {{eachMovie.releaseYear}}						
+					</a>
+					<!-- the anchor tag is already an event on its own, no need for the click event -->
+					<button class="btn btn-danger btn-sm" title="delete Movie" (click) = delete(eachMovie.id)>x</button>
+				</li>
+			</ul>
+		</nav>
+	
+
+</div>
+
+<!--  -->
